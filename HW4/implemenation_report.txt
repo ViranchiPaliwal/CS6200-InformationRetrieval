@@ -1,0 +1,28 @@
+Report on the implemenatation:
+
+Task 1 (Lucene):
+Most of the implementation remained unchanged. I made a few changes such that now the program reads the queries from a query_file.txt. Also the it writes to a file the output being in the format specified.
+
+
+Task 2 (BM25):
+To score my documents using the BM25 ranking algorithm, I performed the following steps:
+Step 1: Using the corpus, generate the unigram inverted index.
+Step 2: For each query in the "query_file.txt" repeat the following steps,
+		a) Maintain a list of unique query terms in the queries i.e qi
+		b) Assume that R and ri is 0 because the relevance information isn't given
+		c) Calculate K by using the formula K = k1((1-b)+ b*dl/avdl), where k1, b values are given
+			and the avdl and dl values can be computed from the inverted index.
+		d) Compute the value of fi and ni from the inverted index.
+		e) Finally when all the variable values are computed we put it in the main BM25 equation to 
+			calculate the score for that document for the given query term, and finally take a summation 
+			of the scores for every term in the query.
+		f) Sort the documents as per their BM25 scores in descending order.
+		g) Print the top 100 scores with their scores in the following format:
+			QueryID 'Q0' DocID Rank BM25_score BM25
+			eg: 1 Q0 Climatechangeadaptation 1 1.26121533413 BM25
+
+I feel that BM25 works better with a larger corpus (larger values of N) and if the stop words are removed because ni (the number of documents in which the query term occours in)
+Because if stop words are removed from the corpus and the query then ni will not be very large. 
+In our implementation of BM25 since R and ri are 0, the first part of the equation is log ((N - ni + 0.5)/ (ni + 0.5)) thus incase of stop words ni value can increase and the numerator (N - ni + 0.5) might be smaller than the denomenator (ni + 0.5) and as we know log of anything less than 1 is a negative number. This will result in decreasing the BM25 scores. Thus we need to make sure to remove stop words and perform BM25 on a larger corpus.
+
+

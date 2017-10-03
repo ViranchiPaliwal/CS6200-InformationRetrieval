@@ -1,0 +1,25 @@
+In task 2, I crawled the given seed link and keyword by DFS and BFS. Using BFS my program crawls 1000 links at most before it stops, and in DFS my program crawls 563 links before it stops.
+
+When I compared the two algorithms I fout out that DFS returns lesser links than BFS. According to me this is because DFS traverses the first link in each depth iteratively and then moves on to the next depth until max depth is reached. So it will first crawl the lower depths before it backtracks to the shallower depths. Thus, if the link is already crawled in the lower depths it won't crawl the same link in the shallower depths, causing it to miss out on all the child links of that shallower depth link. This reduces the size of the tree to be traversed. Unlike in BFS where all the links of the shallower depths will be crawled first. 
+
+Thus I feel given a restriction on the max depth we can go to, DFS will  crawl lesser links than BFS with any seed page.
+
+Also I noticed BFS is slower than DFS. But both have their own advantages. Such as, BFS can be used to find out the shortest path to a specific link. While DFS can be used to get better results if that link is present in the lower depths.
+
+First 5 links of DFS crawl:
+1) at DEPTH: 1, Now crawling: https://en.wikipedia.org/wiki/Sustainable_Energy
+2) at DEPTH: 2, Now crawling: https://en.wikipedia.org/wiki/Solar_energy
+3) at DEPTH: 3, Now crawling: https://en.wikipedia.org/wiki/Solar_Energy_(journal)
+4) at DEPTH: 4, Now crawling: https://en.wikipedia.org/wiki/Solar_heating
+5) at DEPTH: 4, Now crawling: https://en.wikipedia.org/wiki/International_Solar_Energy_Society
+
+First 5 links of BFS crawl:
+
+1) at DEPTH: 1, Now crawling: https://en.wikipedia.org/wiki/Sustainable_Energy
+2) at DEPTH: 2, Now crawling: https://en.wikipedia.org/wiki/Solar_energy
+3) at DEPTH: 2, Now crawling: https://en.wikipedia.org/wiki/Solar_heating
+4) at DEPTH: 2, Now crawling: https://en.wikipedia.org/wiki/Solar_photovoltaics
+5) at DEPTH: 2, Now crawling: https://en.wikipedia.org/wiki/Solar_thermal
+
+As you can see in DFS, it only crawls the first link of each depth until it is lesser than the max depth being 5.
+But BFS crawls all the links in each depth before moving onto the next.

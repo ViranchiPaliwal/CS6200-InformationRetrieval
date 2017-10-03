@@ -1,0 +1,16 @@
+Task-1 statistical report:
+
+G1 graph:
+The total number of pages in the graph are = 1000
+no. of source pages = 0
+no. of sink pages = 10
+Proportion of sink pages = 10 / 1000 = 0.01
+Proportion of source pages = 0 / 1000 = 0
+
+G2 graph:
+The total number of pages in the graph are = 183811
+no. of source pages = 14350
+no. of sink pages = 66175
+Proportion of sink pages = 66175 / 183811 = 0.3600164
+Proportion of source pages = 14350 / 183811 = 0.07807
+

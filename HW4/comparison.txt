@@ -1,0 +1,120 @@
+Discussion comparing the top 5 results between the two search engines across all 4 queries
+
+----------------------------------------------------------------------------
+Query 1: global warming potential
+
+Lucene
+1 Q0 Globalwarming(doc_id = 397) 1 0.284731 Lucene
+1 Q0 Effectsofglobalwarming(doc_id = 256) 2 0.22730893 Lucene
+1 Q0 Climatechangeadaptation(doc_id = 150) 3 0.1965097 Lucene
+1 Q0 Climatechangemitigation(doc_id = 151) 4 0.17537162 Lucene
+1 Q0 Naturalenvironment(doc_id = 597) 5 0.16358551 Lucene
+
+BM25
+1 Q0 Climatechangeadaptation 1 1.26121533413 BM25
+1 Q0 Effectsofglobalwarming 2 1.26034370117 BM25
+1 Q0 Globalwarming 3 1.23351429661 BM25
+1 Q0 Climatechangemitigation 4 1.22421660004 BM25
+1 Q0 Greenhousegas 5 1.22058992779 BM25
+
+Comparison:
+The 1st ranked document in Lucene is Globalwarming while that is the 3rd ranked document by BM25
+The 2nd ranked document by both the engines is Effectsofglobalwarming
+The 3rd ranked document in Lucene is Climatechangeadaptation which is ranked 1st by BM25
+The 4th ranked document by both in the engines in Climatechangemitigation
+The 5th ranked document by Lucene is Naturalenvironment which is ranked 6th by BM25
+The 5th ranked document by BM25 is Greenhousegas which is ranked 7th by Lucene
+
+Thus here you can see that the top 4 all remain the same but in a different order, thus we can say that there is a high overlap between the results of both our implementations
+
+----------------------------------------------------------------------------
+Query 2: green power renewable energy
+
+Lucene
+2 Q0 3Degrees(doc_id = 5) 1 0.51681036 Lucene
+2 Q0 RenewableEnergyCertificate(UnitedStates)(doc_id = 727) 2 0.38519868 Lucene
+2 Q0 Greencollarworker(doc_id = 408) 3 0.375547 Lucene
+2 Q0 Sustainableenergy(doc_id = 855) 4 0.3719659 Lucene
+2 Q0 GreenelectricityintheUnitedKingdom(doc_id = 411) 5 0.3640253 Lucene
+
+BM25
+2 Q0 Sustainabilityandenvironmentalmanagement 1 0.902529855831 BM25
+2 Q0 Greenchemistry 2 0.71291262538 BM25
+2 Q0 Environmentalprotection 3 0.659937826452 BM25
+2 Q0 Sustainablebusiness 4 0.606563798309 BM25
+2 Q0 EKOenergy 5 0.592494175082 BM25
+
+Comparison:
+The 1st ranked document by Lucene is 3Degrees which is ranked 15th by BM25
+The 2nd ranked document by Lucene is RenewableEnergyCertificate(UnitedStates) which is ranked 11th by BM25
+The 3rd ranked document by Lucene is Greencollarworker which is ranked 12th by BM25
+The 4th ranked document by Lucene is Sustainableenergy which is ranked 18th by BM25
+The 5th ranked document by Lucene is GreenelectricityintheUnitedKingdom which is ranked 6th by BM25
+The 1st ranked document by BM25 is Sustainabilityandenvironmentalmanagement which doesnot occour in top 100 in Lucene
+The 2nd ranked document by BM25 is Greenchemistry which is ranked 100 by Lucene
+The 3rd ranked document by BM25 is Environmentalprotection which doesnot occour in top 100 in Lucene
+The 4th ranked document by BM25 is Sustainablebusiness which doesnot occour in top 100 in Lucene
+The 5th ranked document by BM25 is EKOenergy which is ranked 43rd by Lucene
+
+The comparison shows that the top results retrieved from both systems overlap in moderation for this query. 
+----------------------------------------------------------------------------
+Query 3: solar energy california
+
+Lucene
+3 Q0 TopazSolarFarm(doc_id = 901) 1 0.51967657 Lucene
+3 Q0 Outlineofsolarenergy(doc_id = 642) 2 0.40155908 Lucene
+3 Q0 RenewableenergyintheUnitedStates(doc_id = 732) 3 0.37338576 Lucene
+3 Q0 NevadaSolarOne(doc_id = 607) 4 0.3503446 Lucene
+3 Q0 Solararchitecture(doc_id = 801) 5 0.33655664 Lucene
+
+BM25
+3 Q0 NASA 1 1.25182308554 BM25
+3 Q0 IvanpahSolarPowerFacility 2 1.2016793594 BM25
+3 Q0 TopazSolarFarm 3 1.1920343933 BM25
+3 Q0 RenewableenergyintheUnitedStates 4 1.17772631872 BM25
+3 Q0 SiliconValleyPower 5 1.17032503021 BM25
+
+The 1st ranked document by Lucene is TopazSolarFarm which is ranked 3rd by BM25
+The 2nd ranked document by Lucene is Outlineofsolarenergy which is ranked 12th by BM25
+The 3rd ranked document by Lucene is RenewableenergyintheUnitedStates which is ranked 4th by BM25
+The 4th ranked document by Lucene is NevadaSolarOne which is ranked 26th by BM25
+The 5th ranked document by Lucene is Solararchitecture which is ranked 42nd by BM25
+The 1st ranked document by BM25 is NASA which doesnot occour in top 100 in Lucene
+The 2nd ranked document by BM25 is Greenchemistry which is ranked 8th by Lucene
+The 5th ranked document by BM25 is SiliconValleyPower which is ranked 10th by Lucene
+
+So, even though there are two documents common among the top 5 search results for both the systems, we can see that there are certain skewed rankings. The scores between documents retirieved from both systems are also not as consistent as we have seen in case of Query 1. Looking at the comparison we come to know that it is better than Query 2 but not as good as Query 1.
+
+----------------------------------------------------------------------------
+Query 4: light bulb bulbs alternative alternatives
+
+Lucene
+4 Q0 Lighting(doc_id = 524) 1 0.19404386 Lucene
+4 Q0 Airconditioning(doc_id = 22) 2 0.10511436 Lucene
+4 Q0 Outlineofsolarenergy(doc_id = 642) 3 0.08770987 Lucene
+4 Q0 Light(doc_id = 523) 4 0.086601734 Lucene
+4 Q0 Kilowatthour(doc_id = 508) 5 0.078135155 Lucene
+
+BM25
+4 Q0 Lighting 1 6.68724161118 BM25
+4 Q0 Airconditioning 2 4.88209264387 BM25
+4 Q0 Kilowatthour 3 4.18023509914 BM25
+4 Q0 Outlineofsolarenergy 4 4.16398252811 BM25
+4 Q0 Watt#Megawatt 5 4.05193332917 BM25
+
+The 1st ranked document by both the engines is Lighting
+The 2nd ranked document by both the engines is Airconditioning
+The 3rd ranked document by Lucene is Outlineofsolarenergy which is ranked 4th by BM25
+The 4th ranked document by Lucene is Light which is ranked 21st by BM25
+The 5th ranked document by Lucene is Kilowatthour which is ranked 3rd by BM25
+The 5th ranked document by BM25 is Watt#Megawatt which is ranked 10th by Lucene
+
+For this query we can say that the top 5 results derived from BM25 and Lucene systems are very similar. Among all four queries, this query has the highest degree of overlap between the retrieved results for both the systems.
+
+----------------------------------------------------------------------------
+CONCLUSION:
+Lucene scoring uses a combination of the Vector Space Model (VSM) of Information Retrieval and the Boolean model to determine how relevant a given Document is to a User's query. In general, the idea behind the VSM is the more times a query term appears in a document relative to the number of times the term appears in all the documents in the collection, the more relevant that document is to the query.
+
+In Lucene, number of hits determine the number of documents across the corpus which contain all the query terms. These documents are given priorities while ranking over the ones which doesnot contain all the query terms. Boolean model plays an important role in determining the number of hits. So, the queries for which the number of hits are fairly high like Query2 and Query3, boolean model plays a major role in determining the final rankings of the documents. On the other hand, for Query1 and Query4, the number of hits as per Lucene is less. Consequently, Boolean model plays a lesser signficant role in the final rankings leading to more overlap between the results generated by my implementation Of BM25 and Lucene. 
+
+If there are more number of hits in BM25 algorithm then the overall score decreases as ni increases. If ni increases then it might happen that N - ni might be lesser than ni thus resulting log will be negative, decreasing the score. BM25 uses a probabilistic model to score the document relevance. Hence the result might be different on the type of the query input.

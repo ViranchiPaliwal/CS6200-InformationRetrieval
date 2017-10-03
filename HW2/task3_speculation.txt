@@ -1,0 +1,30 @@
+Speculation on why the top 5 web pages have high Page Rank values:
+
+The top 5 pages of 'g1graph.txt' as per their PageRank values are as follows:
+
+1. Digital_object_identifier
+2. International_Standard_Book_Number
+3. PubMed_Identifier
+4. Japan
+5. United_States
+
+The top 5 pages of the same graph as per their inlink-counts are as follows:
+
+1. International_Standard_Book_Number   Inlinks= 479
+2. Digital_object_identifier 			Inlinks= 454
+3. Renewable_energy 					Inlinks= 420
+4. Efficient_energy_use 				Inlinks= 279
+5. United_States 						Inlinks= 253
+
+Explanation:
+
+PageRank is a type of query-independent metadata that can improve ranking for web search. It uses the links between web pages as a way to measure popularity. One of the obvious measure is to count the number of inlinks for each page to calculate the page rank of that particular page.
+However, if a page has an inlink from a popular page(page having higher page rank value), it increases the page rank for that particular page more than if it has an inlink from a less popular page. For example, a page P1 having one inlink from a very popular page like CNN, will have higher page rank value than another page P2 which has two or three inlinks from a few less popular pages like a personal blogs. Thus, we can say that higher page rank means the page has got more inlinks and the pages in the inlinks are themselves again having high page rank values. In the above results, we can see that the page 'International_Standard_Book_Number' has got more in-links than 'Digital_object_identifier' but it does not have a higher page rank value than 'Digital_object_identifier'. This maybe due to the pages pointing to 'International_Standard_Book_Number' themselves have got a lesser page rank value as compared to pages pointing to 'Digital_object_identifier', i.e. pages pointing to 'Digital_object_identifier' are more popular as compared to pages pointing to 'International_Standard_Book_Number'. This leading to drop of overall page rank of 'International_Standard_Book_Number'. 
+
+Another factor that is taken into consideration while calcuating the page rank is the number of out-links. For example, if a page P1 is having inlink from P2 and P2 in turn has a lot of outlinks, then the increment of PageRank in P1 due to inlink P2 will be comparatively less. Hence, the page rank of a page P also depends on the number of outgoing links in the page which points to P. Additionally, we assume that web is an interconnected graph of pages where we can go from one page to all other pages either by following its outlinks or via teleportation. So, having higher number of outlinks also in turn decreases the page rank of a particular page in the long run. In the above results, we can see that 'Renewable_energy' has got a high number of inlinks but it does not appear in the top 5 list of Page ranks. However, 'United-States' ranks 5th in the list as per page rank values but has relatively lesser inlinks. It might be because 'United_States' has inlinks from pages which have fewer outlinks which inturn maybe contributing to increasing its pagetank. On the other hand, the inlinks to 'Renewable_energy' may have more number of outlinks and hence they are not contributing to its page rank much.
+
+Conclusion:
+
+Analyzing the results obtained from both G1_Graph and G2_Graph, we can see that pages with higher number of inlinks have a higher chance of obtaining better page ranks but that is not necessarily true all the time because of the other measures (as explained above) are also taken into consideration while calculating the page rank.
+
+

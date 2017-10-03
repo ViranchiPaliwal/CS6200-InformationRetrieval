@@ -1,0 +1,24 @@
+Explanation for merging two lists:
+
+L1 and L2 were the crawled list I got after crawling https://en.wikipedia.org/wiki/Sustainable_Energy and https://en.wikipedia.org/wiki/Solar_Energy respectively.
+I assumed that at the same depth, links in L1 will have more importance than links in L2. Now I alternatively keep adding the first link present in L1 and L2 to a list L3 only if the link isn't already present in L3. Also if I add the first link of L1 into L3, I make sure that this link has a depth lesser than the first link present in L2. The same is done for adding the first link of L2 into L3. If the length of L3 exceeds 1000 then L3 is printed and the process ends.
+
+
+Psudo code:
+L1 = Sustainable_Energy	 	# L1 is a list that contains all crawled links with Sustainable_Energy
+L2 = Solar_Energy			# L2 is a list that contains all crawled links with Solar_Energy
+L3 = []						# L3 is an empty list
+
+START
+IF LEN(L3) <= 1000 THEN
+	IF DEPTH(L1[0]) <= DEPTH(L2[0]) THEN
+		X = L1.POP(0)
+		IF X NOT IN L3
+			L3.APPEND(X)
+	IF DEPTH(L1[0]) >= DEPTH(L2[0]) THEN
+		Y = L2.POP(0)
+		IF Y NOT IN L3
+			L3.APPEND(Y)
+ELSE
+	PRINT L3
+END
